@@ -8,7 +8,15 @@
 // Append to container
 
 const pixel = document.createElement('div');
+pixel.className = 'pixel';
 
+// Number is number of pixels required.  Divide container width (currently not specified)
+// by number of pixels to get pixel width.  Return as an array to have 2 return values.
+function getSize(number) {
+  pixelWidth = containerWidth / number;
+  pixelHeight = containerHeight / number;
+  return [pixelWidth, pixelHeight];
+}
 
 // Create a square div
   // Height and width are ==.
