@@ -15,10 +15,15 @@ const styles = document.styleSheets
 
 const newDiv = document.createElement('div');
 
+let contWidth = container.offsetWidth;
+let contHeight = container.offsetHeight;
+
 function makeSquare() {
   newDiv.style.border = 'solid 1px gray';
-  newDiv.style.height = '10px';
-  newDiv.style.width = '10px';
+  let width = getWidth(contWidth, 16);
+  let height = getHeight(contHeight, 16);
+  newDiv.style.width = width;
+  newDiv.style.height = height;
   container.appendChild(newDiv);
 }
 
