@@ -10,6 +10,33 @@
 // Number is number of pixels required.  Divide container width (currently not specified)
 // by number of pixels to get pixel width.  Return as an array to have 2 return values.
 // Compensate for floating-point errors, or rounding??
+const container = document.querySelector('.container');
+const styles = document.styleSheets
+
+const newDiv = document.createElement('div');
+
+function makeSquare() {
+  newDiv.style.border = 'solid 1px gray';
+  newDiv.style.height = '10px';
+  newDiv.style.width = '10px';
+  container.appendChild(newDiv);
+}
+
+function getWidth(contWidth, pixelNumber) {
+  let width = contWidth / pixelNumber;
+  return width;
+}
+
+function getHeight(contHeight, pixelNumber) {
+  let height = contHeight / pixelNumber;
+  return height;
+}
+
+
+
+makeSquare();
+
+
 
 
 // Adjust CSS classes to make square div that can be appended to container.
