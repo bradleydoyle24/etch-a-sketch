@@ -1,6 +1,12 @@
 .pixel {
   border: solid 1px gray;
+  height: 10px;
+  width: 10px;
+  border: solid 1px gray;
 }
 
 .container {
+  height: 50vh;
+  width: 50vw;
+  border: 1px solid black;
 }

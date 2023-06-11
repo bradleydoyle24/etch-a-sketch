@@ -1,31 +1,22 @@
-// Create a 16 x 16 square of divs
+/* 
+Create container div
+  Create const for container
+  each pixel is it's own div.
+    hardcode width/height for now, change to dynamic later.
+  each row is it's own div.
+    Create a const for a pixel div
+    Fill with pixel
+    Create a const for a row div
+    Append pixel to row 16x
+    Append row to container div
+  stack row a certain number of times (16 to start).
+*/
 
-// Create variable for container
-// Create variable for pixels div
-  // Modify CSS stylings for new div?
-// Create row/column of divs
-// Append to new div
-// Append to container
+const container = document.querySelector('.container');
+const pixel = document.createElement('div');
+const row = document.createElement('div');
 
-// Number is number of pixels required.  Divide container width (currently not specified)
-// by number of pixels to get pixel width.  Return as an array to have 2 return values.
-// Compensate for floating-point errors, or rounding??
+pixel.classList.add('pixel');
 
-
-// Make div for a row
-  // Append pixel div to row
-  // Append row to container
-
-// Adjust CSS classes to make square div that can be appended to container.
-
-// Container will need flexbox values to control location of divs.
-
-// Create a square div
-  // Height and width are ==.
-  // Must match width/height of container
-    // Width / 16 = length of 1 container
-    // Height / 16 = length of 1 container
-
-// Repeat 16x for row
-  // iterate through loop
-// Then repeat 16x for columns.
+row.appendChild(pixel);
+container.appendChild(row);
