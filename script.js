@@ -1,7 +1,7 @@
 // Create a 16 x 16 square of divs
 
 // Create variable for container
-// Create variable for new div
+// Create variable for pixels div
   // Modify CSS stylings for new div?
 // Create row/column of divs
 // Append to new div
@@ -11,39 +11,10 @@
 // by number of pixels to get pixel width.  Return as an array to have 2 return values.
 // Compensate for floating-point errors, or rounding??
 
-const container = document.querySelector('.container');
-const styles = document.styleSheets
 
-const newDiv = document.createElement('div');
-
-let contWidth = container.offsetWidth;
-let contHeight = container.offsetHeight;
-
-function makeSquare() {
-  newDiv.style.border = 'solid 1px gray';
-  let width = getWidth(contWidth, 16);
-  let height = getHeight(contHeight, 16);
-  newDiv.style.width = '10px';
-  newDiv.style.height = '10px';
-  container.appendChild(newDiv);
-}
-
-function getWidth(contWidth, pixelNumber) {
-  let width = contWidth / pixelNumber;
-  return width;
-}
-
-function getHeight(contHeight, pixelNumber) {
-  let height = contHeight / pixelNumber;
-  return height;
-}
-
-
-
-makeSquare();
-
-
-
+// Make div for a row
+  // Append pixel div to row
+  // Append row to container
 
 // Adjust CSS classes to make square div that can be appended to container.
 
