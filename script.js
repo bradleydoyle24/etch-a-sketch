@@ -10,6 +10,7 @@
 // Number is number of pixels required.  Divide container width (currently not specified)
 // by number of pixels to get pixel width.  Return as an array to have 2 return values.
 // Compensate for floating-point errors, or rounding??
+
 const container = document.querySelector('.container');
 const styles = document.styleSheets
 
@@ -22,8 +23,8 @@ function makeSquare() {
   newDiv.style.border = 'solid 1px gray';
   let width = getWidth(contWidth, 16);
   let height = getHeight(contHeight, 16);
-  newDiv.style.width = width;
-  newDiv.style.height = height;
+  newDiv.style.width = '10px';
+  newDiv.style.height = '10px';
   container.appendChild(newDiv);
 }
 
