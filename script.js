@@ -14,9 +14,33 @@ Create container div
 
 const container = document.querySelector('.container');
 const pixel = document.createElement('div');
+const pixel1 = document.createElement('div');
+
 const row = document.createElement('div');
 
-pixel.classList.add('pixel');
+let pixelWidth = getPixelWidth(16);
+let pixelHeight = getPixelHeight(16);
+
+pixel.style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
+pixel1.style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
+
+
+// pixel.style.height = '' + `${pixelHeight}`;
+
+function getPixelWidth(pixelNumber) {
+  let contWidth = container.offsetWidth;
+  let pixelWidth = contWidth / pixelNumber;
+  return pixelWidth;
+}
+
+function getPixelHeight(pixelNumber) {
+  let contHeight = container.offsetHeight;
+  let pixelHeight = contHeight / pixelNumber;
+  return pixelHeight;
+}
 
 row.appendChild(pixel);
+row.appendChild(pixel1);
+row.style.display = 'flex';
+
 container.appendChild(row);
