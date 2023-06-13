@@ -18,30 +18,28 @@ Use flexbox auto-sizing to make pixels fill the container?
 const container = document.querySelector('.container');
 
 const row = document.createElement('div');
-const column = document.createElement('div');
 
 let number = 4;
 
-let pixelRowDiv = [];
-let pixelColumnDiv = [];
+let pixel = [];
+let pixelRow = [];
 
-// Create 'number' amount of rows
+// Create new empty row to add pixels to.
 for (let j = 0; j < number; j++) {
-  pixelColumnDiv[j] = document.createElement('div');
-  // Create 1 row's worth of pixels and append to row
+  pixelRow[j] = document.createElement('div');
+  pixelRow[j].style.display = 'flex'; 
   for (let i = 0; i < number; i++) {
-    pixelRowDiv[i] = document.createElement('div');
-    pixelRowDiv[i].style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
-
-    pixelColumnDiv[j].appendChild(pixelRowDiv[i]);  
-    pixelColumnDiv[j].style.display = 'flex'; 
+    // Create 1 row's worth of pixels and append to row
+    pixel[i] = document.createElement('div');
+    pixel[i].style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
+    pixelRow[j].appendChild(pixel[i]);  
   } 
-  column.appendChild(pixelColumnDiv[j]);
+  row.appendChild(pixelRow[j]);
 }
 
-column.style.display = 'flex';
-column.style.flexDirection = 'column';
+row.style.display = 'flex';
+row.style.flexDirection = 'column';
 
-container.appendChild(column);
+container.appendChild(row);
 
 
