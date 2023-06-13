@@ -10,37 +10,38 @@ Create container div
     Append pixel to row 16x
     Append row to container div
   stack row a certain number of times (16 to start).
+
+
+Use flexbox auto-sizing to make pixels fill the container?
 */
 
 const container = document.querySelector('.container');
-const pixel = document.createElement('div');
-const pixel1 = document.createElement('div');
 
 const row = document.createElement('div');
 const column = document.createElement('div');
 
 let number = 4;
 
-let pixelRowArray = [];
-let pixelColumnArray = [];
+let pixelRowDiv = [];
+let pixelColumnDiv = [];
 
 // Create 'number' amount of rows
 for (let j = 0; j < number; j++) {
-  pixelColumnArray[j] = document.createElement('div');
+  pixelColumnDiv[j] = document.createElement('div');
   // Create 1 row's worth of pixels and append to row
   for (let i = 0; i < number; i++) {
-    pixelRowArray[i] = document.createElement('div');
-    pixelRowArray[i].style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
+    pixelRowDiv[i] = document.createElement('div');
+    pixelRowDiv[i].style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
 
-    pixelColumnArray[j].appendChild(pixelRowArray[i]);  
-    pixelColumnArray[j].style.display = 'flex'; 
+    pixelColumnDiv[j].appendChild(pixelRowDiv[i]);  
+    pixelColumnDiv[j].style.display = 'flex'; 
   } 
-  column.appendChild(pixelColumnArray[j]);
+  column.appendChild(pixelColumnDiv[j]);
 }
 
 column.style.display = 'flex';
 column.style.flexDirection = 'column';
 
- container.appendChild(column);
+container.appendChild(column);
 
 
