@@ -17,30 +17,30 @@ const pixel = document.createElement('div');
 const pixel1 = document.createElement('div');
 
 const row = document.createElement('div');
+const column = document.createElement('div');
 
-let pixelWidth = getPixelWidth(16);
-let pixelHeight = getPixelHeight(16);
+let number = 4;
 
-pixel.style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
-pixel1.style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
+let pixelRowArray = [];
+let pixelColumnArray = [];
 
+// Create 'number' amount of rows
+for (let j = 0; j < number; j++) {
+  pixelColumnArray[j] = document.createElement('div');
+  // Create 1 row's worth of pixels and append to row
+  for (let i = 0; i < number; i++) {
+    pixelRowArray[i] = document.createElement('div');
+    pixelRowArray[i].style.cssText = 'width: 10px; height: 10px; border: solid 1px gray;';
 
-// pixel.style.height = '' + `${pixelHeight}`;
-
-function getPixelWidth(pixelNumber) {
-  let contWidth = container.offsetWidth;
-  let pixelWidth = contWidth / pixelNumber;
-  return pixelWidth;
+    pixelColumnArray[j].appendChild(pixelRowArray[i]);  
+    pixelColumnArray[j].style.display = 'flex'; 
+  } 
+  column.appendChild(pixelColumnArray[j]);
 }
 
-function getPixelHeight(pixelNumber) {
-  let contHeight = container.offsetHeight;
-  let pixelHeight = contHeight / pixelNumber;
-  return pixelHeight;
-}
+column.style.display = 'flex';
+column.style.flexDirection = 'column';
 
-row.appendChild(pixel);
-row.appendChild(pixel1);
-row.style.display = 'flex';
+ container.appendChild(column);
 
-container.appendChild(row);
+
