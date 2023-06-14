@@ -26,18 +26,19 @@ let number = 4;
 let pixel = [];
 let pixelRow = [];
 
-// Get width/height of container
+// Get width/height of container. clientWidth/height does not include the 
+// container border in calculations.
 let contWidth = container.clientWidth;
 let contHeight = container.clientHeight;
 console.log(`container width = ${contWidth}`);
 console.log(`container height = ${contHeight}`);
 
+// Allows for variable border widths for each pixel.
+let pixelBorderWidth = 1;
 
-// Subtract 2 because each direction has a 1 pixel border.
-// Subtracting 2 accounts for border on each side.
-
-let width =  (contWidth / number) - 2;
-let height = (contHeight / number) - 2;
+// Subtract 2 * pixelBorderWidth as there is a border on each side.
+let width =  (contWidth / number) - (2 * pixelBorderWidth);
+let height = (contHeight / number) - (2 * pixelBorderWidth);
 console.log(`pixel width = ${width}`);
 console.log(`pixel height = ${height}`);
 
@@ -49,7 +50,7 @@ for (let j = 0; j < number; j++) {
   for (let i = 0; i < number; i++) {
     // Create 1 row's worth of pixels and append to row
     pixel[i] = document.createElement('div');
-    pixel[i].style.cssText = `width: ${width}px; height: ${height}px; border: solid 1px gray;`;
+    pixel[i].style.cssText = `width: ${width}px; height: ${height}px; border: solid ${pixelBorderWidth}px gray;`;
     pixelRow[j].appendChild(pixel[i]);  
   } 
   row.appendChild(pixelRow[j]);
