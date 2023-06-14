@@ -1,27 +1,11 @@
-/* 
-Create container div
-  Create const for container
-  each pixel is it's own div.
-    hardcode width/height for now, change to dynamic later.
-  each row is it's own div.
-    Create a const for a pixel div
-    Fill with pixel
-    Create a const for a row div
-    Append pixel to row 16x
-    Append row to container div
-  stack row a certain number of times (16 to start).
-
-
-Use flexbox auto-sizing to make pixels fill the container?
-*/
-
+// CREATES PIXELS FOR CONTAINER
 const container = document.querySelector('.container');
 
 const row = document.createElement('div');
 row.style.display = 'flex';
 row.style.flexDirection = 'column';
 
-let number = 4;
+let number = 3;
 
 let pixel = [];
 let pixelRow = [];
@@ -36,7 +20,7 @@ console.log(`container height = ${contHeight}`);
 // Allows for variable border widths for each pixel.
 let pixelBorderWidth = 1;
 
-// Subtract 2 * pixelBorderWidth as there is a border on each side.
+// Subtract (2 * pixelBorderWidth) as there is a border on each side.
 let width =  (contWidth / number) - (2 * pixelBorderWidth);
 let height = (contHeight / number) - (2 * pixelBorderWidth);
 console.log(`pixel width = ${width}`);
@@ -58,4 +42,10 @@ for (let j = 0; j < number; j++) {
 
 container.appendChild(row);
 
+// ADJUST PIXEL COLOR WHEN MOUSE HOVERS OVER
 
+/*
+Create a class for each color gradient
+Create listener event for each pixel
+When pixel is hovered over, change color.
+*/ 
