@@ -44,17 +44,11 @@ container.appendChild(row);
 
 // ADJUST PIXEL COLOR WHEN MOUSE HOVERS OVER
 
-/*
-Create DOM list of listeners for each pixel
-Use to create listeners for each pixel
-
-Create a class for each color gradient
-Create listener event for each pixel
-When pixel is hovered over, change color.
-*/ 
-
+// Create DOM list of divs with .pixel class
 const pixels = document.querySelectorAll('.pixel');
 
+// Iterates through list of pixels, adding an event listener to each one,
+// with an anonymous function to change the pixel class to .pixelBlack.
 function pixelBlack() {
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
