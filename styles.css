@@ -1,12 +1,15 @@
 .pixel {
-  border: solid 1px gray;
-  height: 10px;
-  width: 10px;
-  border: solid 1px gray;
+  border: solid 0.5px gray;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   height: 50vh;
-  width: 50vw;
+  width: 50vh;
   border: 1px solid black;
+}
+
+.pixelBlack {
+  background-color: black;
 }
