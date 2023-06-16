@@ -52,7 +52,31 @@ const pixels = document.querySelectorAll('.pixel');
 function pixelBlack() {
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
-      pixel.classList.add('pixelBlack');
+      pixel.style.backgroundColor = 'black';
+    });
+  });
+};
+
+function pixelRed() {
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', ()=> {
+      pixel.style.backgroundColor = 'rgb(238 22 22)';
+    });
+  });
+};
+
+function pixelBlue() {
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', ()=> {
+      pixel.style.backgroundColor = 'rgb(22 81 238)';
+    });
+  });
+};
+
+function pixelPink() {
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', ()=> {
+      pixel.style.backgroundColor = 'rgb(238 22 101)';
     });
   });
 };
@@ -73,9 +97,6 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
-//pixelBlack();
-pixelRandomColor();
-
 /*
 Prompt user for pixel amount
 Change color for buttons
@@ -91,15 +112,3 @@ When clicked, clear all color select functions
 Erase board?
 Set new color function
 */
-
-const buttons = document.querySelectorAll('.color-button');
-
-buttons.forEach((button) => {
-  button.addEventListener('click', ()=> {
-    changeColor();
-  });
-});
-
-function changeColor() {
-
-};
