@@ -57,4 +57,49 @@ function pixelBlack() {
   });
 };
 
-pixelBlack();
+// Gets a random value between 0 and 256 and assigns to RBG values for pixel background color;
+function pixelRandomColor() {
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', ()=> {
+      let redRandom = getRandom();
+      let greenRandom = getRandom();
+      let blueRandom = getRandom();
+      pixel.style.backgroundColor = `rgb(${redRandom} ${greenRandom} ${blueRandom})`
+    });
+  });
+};
+
+function getRandom() {
+  return Math.floor(Math.random() * 256);
+}
+
+//pixelBlack();
+pixelRandomColor();
+
+/*
+Prompt user for pixel amount
+Change color for buttons
+Adjust stylesheet
+*/
+
+
+/* 
+CHANGE COLOR FOR BUTTONS
+
+Create a listener for each button selection
+When clicked, clear all color select functions
+Erase board?
+Set new color function
+*/
+
+const buttons = document.querySelectorAll('.color-button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', ()=> {
+    changeColor();
+  });
+});
+
+function changeColor() {
+
+};

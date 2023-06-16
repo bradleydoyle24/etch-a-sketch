@@ -26,36 +26,48 @@ body {
   background-color: lightgray;
 }
 
-.middle-row {
-  display: flex;
-}
-
-.pixel-number {
-
-}
-
-.pixel-number-title {
-
-}
-
-.pixel-number-display {
-  
-}
-
 .container {
   display: flex;
   flex-direction: column;
   height: 70vh;
   width: 70vh;
-  border: 1px solid black;
+  border: 5px solid black;
 }
+
+.bottom-row {
+  display: flex;
+  margin: 2vh;
+  justify-content: space-between;
+  gap: 1vw;
+}
+
+.pixel-number-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: .5vh;
+  border: solid 2px blue;
+  border-radius: 5px;
+  background-color:coral;
+}
+
+.pixel-number-title {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.pixel-number {
+  
+}
+
 
 .selections {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   border: solid 2px blue;
   border-radius: 5px;
-  margin: 2vh;
   width: 100%;
   background-color:blanchedalmond;
 }
