@@ -13,6 +13,13 @@ body {
   border-radius: 20px;
 }
 
+.title {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 50px;
+  font-variant:small-caps;
+  color: white;
+}
 
 .pixel {
   border: solid 0.5px gray;
@@ -22,8 +29,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  height: 75vh;
-  width: 75vh;
+  height: 70vh;
+  width: 70vh;
   border: 1px solid black;
 }
 
