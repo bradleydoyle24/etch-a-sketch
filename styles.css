@@ -27,6 +27,20 @@ body {
   border: 1px solid black;
 }
 
+.selections {
+  display: flex;
+  justify-content: space-evenly;
+  border: solid 2px blue;
+  border-radius: 5px;
+  margin: 2vh;
+  width: 100%;
+  background-color:blanchedalmond;
+}
+
+.selection {
+  margin: 2vh;
+}
+
 .pixelBlack {
   background-color: black;
 }
