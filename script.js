@@ -4,6 +4,8 @@ const container = document.querySelector('.container');
 const row = document.createElement('div');
 row.style.display = 'flex';
 row.style.flexDirection = 'column';
+row.classList.add('pixelRow');
+
 
 let pixel = [];
 let pixelRow = [];
@@ -16,11 +18,22 @@ let pixelHeight;
 
 let pixelBorderWidth = 1;
 
+buildEtch(50);
 
 function buildEtch(pixelNumber) {
+  clearContainer(row);
   getContSize();
   getPixelSize(contWidth, contHeight, pixelNumber);
   buildContainer(pixelNumber);  
+}
+
+function clearContainer(parent) {
+
+  let child = parent.lastElementChild;
+  while (child) {
+    parent.removeChild(child);
+    child = parent.lastElementChild;
+  }
 }
 
 function getContSize() {
