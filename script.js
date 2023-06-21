@@ -8,24 +8,39 @@ row.style.flexDirection = 'column';
 let pixel = [];
 let pixelRow = [];
 
+let contWidth;
+let contHeight;
+
+let pixelWidth;
+let pixelHeight;
+
+let pixelBorderWidth = 1;
+
+
 function buildEtch(pixelNumber) {
+  getContSize();
+  getPixelSize(contWidth, contHeight, pixelNumber);
+  buildContainer(pixelNumber);  
+}
+
+function getContSize() {
   // Get width/height of container. clientWidth/height does not include the 
   // container border in calculations.
-  let contWidth = container.clientWidth;
-  let contHeight = container.clientHeight;
+  contWidth = container.clientWidth;
+  contHeight = container.clientHeight;
   console.log(`container width = ${contWidth}`);
   console.log(`container height = ${contHeight}`);
+}
 
-  // Allows for variable border widths for each pixel.
-  let pixelBorderWidth = 1;
-
+function getPixelSize(contWidth, contHeight, pixelNumber) {
   // Subtract (2 * pixelBorderWidth) as there is a border on each side.
-  let pixelWidth =  (contWidth / pixelNumber) - (2 * pixelBorderWidth);
-  let pixelHeight = (contHeight / pixelNumber) - (2 * pixelBorderWidth);
+  pixelWidth =  (contWidth / pixelNumber) - (2 * pixelBorderWidth);
+  pixelHeight = (contHeight / pixelNumber) - (2 * pixelBorderWidth);
   console.log(`pixel width = ${pixelWidth}`);
   console.log(`pixel height = ${pixelHeight}`);
+}
 
-
+function buildContainer(pixelNumber) {
   // Create new empty row <div> to add pixels to.
   for (let j = 0; j < pixelNumber; j++) {
     pixelRow[j] = document.createElement('div');
@@ -39,9 +54,9 @@ function buildEtch(pixelNumber) {
     } 
     row.appendChild(pixelRow[j]);
   }
-
   container.appendChild(row);
 }
+
 // ADJUST PIXEL COLOR WHEN MOUSE HOVERS OVER
 
 // Create DOM list of divs with .pixel class
@@ -50,6 +65,7 @@ const pixels = document.querySelectorAll('.pixel');
 // Iterates through list of pixels, adding an event listener to each one,
 // with an anonymous function to change the pixel class to .pixelBlack.
 function pixelBlack() {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
       pixel.style.backgroundColor = 'black';
@@ -59,6 +75,7 @@ function pixelBlack() {
 
 // PIXEL COLOR CHANGING FUNCTIONS
 function pixelRed() {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
       pixel.style.backgroundColor = 'rgb(238 22 22)';
@@ -67,6 +84,7 @@ function pixelRed() {
 };
 
 function pixelBlue() {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
       pixel.style.backgroundColor = 'rgb(22 81 238)';
@@ -75,6 +93,7 @@ function pixelBlue() {
 };
 
 function pixelPink() {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
       pixel.style.backgroundColor = 'rgb(238 22 101)';
@@ -84,6 +103,7 @@ function pixelPink() {
 
 // Gets a random value between 0 and 256 and assigns to RBG values for pixel background color;
 function pixelRandomColor() {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
       let redRandom = getRandom();
