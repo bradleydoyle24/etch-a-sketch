@@ -149,17 +149,17 @@ const colorButtons = document.querySelectorAll('.color-button')
 
 colorButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    removeHighlight();
+    // Returns buttons to default background color.
+    colorButtons.forEach((button) => {
+      button.style.backgroundColor = '';
+    });
+    // Changes clicked button background color to blue.
     button.style.backgroundColor = 'rgb(22 81 238)';
   });
 });
 
 
-function removeHighlight() {
-  colorButtons.forEach((button) => {
-    button.style.backgroundColor = '';
-  });
-}
+
 
 
 const pixelInputNumber = document.querySelector('#pixel-input');
