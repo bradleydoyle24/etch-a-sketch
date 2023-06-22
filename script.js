@@ -79,8 +79,6 @@ function buildContainer(pixelNumber) {
 }
 
 // ADJUST PIXEL COLOR WHEN MOUSE HOVERS OVER
-
-// Create DOM list of divs with .pixel class
 const pixels = document.querySelectorAll('.pixel');
 
 // Iterates through list of pixels, adding an event listener to each one,
@@ -139,6 +137,31 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
+// Function to turn the button to a certain color when selected
+/*
+Make id's for each button color
+Make a DOM node for all buttons
+Turn all colors to basic to reset any previously set colors,
+then make clicked id turn a color
+*/ 
+const colorButtons = document.querySelectorAll('.color-button')
+
+
+colorButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    removeHighlight();
+    button.style.backgroundColor = 'rgb(22 81 238)';
+  });
+});
+
+
+function removeHighlight() {
+  colorButtons.forEach((button) => {
+    button.style.backgroundColor = '';
+  });
+}
+
+
 const pixelInputNumber = document.querySelector('#pixel-input');
 const pixelInputButton = document.querySelector('#pixel-input-button');
 
@@ -150,6 +173,7 @@ pixelInputButton.addEventListener('click', () => {
 
 
 function limitEtchSize(pixelNumber) {
+  // Stops pixels > 100 and reveals message to user of pixel limit.
   let etchLimitMessage = document.querySelector('.etch-limit-message');
   if (pixelNumber <= 100) {
     etchLimitMessage.style.display = 'none';
