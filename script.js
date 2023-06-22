@@ -11,12 +11,14 @@ row.classList.add('pixelRow');
 
 let pixel = [];
 let pixelRow = [];
+let pixelNumber;
 
 let contWidth;
 let contHeight;
 let pixelWidth;
 let pixelHeight;
 let pixelBorderWidth = 1;
+
 
 
 // Default size that page will start with.
@@ -32,7 +34,15 @@ function buildEtch(pixelNumber) {
     getContSize();
     getPixelSize(contWidth, contHeight, pixelNumber);
     buildContainer(pixelNumber);  
-  } else return;
+  } else {
+    // Builds 50 h/w etch if value > 100.
+    pixelNumber = 50;
+    clearContainer(row);
+
+    getContSize();
+    getPixelSize(contWidth, contHeight, pixelNumber);
+    buildContainer(pixelNumber); 
+  }
 }
 
 function clearContainer(parent) {
@@ -137,15 +147,8 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
-// Function to turn the button to a certain color when selected
-/*
-Make id's for each button color
-Make a DOM node for all buttons
-Turn all colors to basic to reset any previously set colors,
-then make clicked id turn a color
-*/ 
+// CHANGES CLICKED BUTTON TO BLUE, NON-CLICKED TO DEFAULT COLOR
 const colorButtons = document.querySelectorAll('.color-button')
-
 
 colorButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -158,16 +161,12 @@ colorButtons.forEach((button) => {
   });
 });
 
-
-
-
-
 const pixelInputNumber = document.querySelector('#pixel-input');
 const pixelInputButton = document.querySelector('#pixel-input-button');
 
 pixelInputButton.addEventListener('click', () => {
   // Uses user input to build new etch with user defined width/height.
-  let pixelNumber = pixelInputNumber.value;
+  pixelNumber = pixelInputNumber.value;
   buildEtch(pixelNumber);
 });
 
@@ -184,3 +183,9 @@ function limitEtchSize(pixelNumber) {
     return false;
   }
 }
+
+// CLEAR SCREEN WITH BUTTON CLICK
+const clearScreen = document.querySelector('#clear-screen');
+clearScreen.addEventListener('click', () => {
+  buildEtch(pixelNumber);
+});
