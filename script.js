@@ -1,5 +1,7 @@
 // CREATES PIXELS FOR CONTAINER
 const container = document.querySelector('.container');
+const etchHolder = document.querySelector('.etch-holder');
+
 
 const row = document.createElement('div');
 row.style.display = 'flex';
@@ -16,6 +18,7 @@ let pixelWidth;
 let pixelHeight;
 let pixelBorderWidth = 1;
 
+
 // Default size that page will start with.
 buildEtch(50);
 
@@ -23,7 +26,9 @@ function buildEtch(pixelNumber) {
   // Builds a square of length/width 'pixelNumber'.
   // Will replace pixels if already present.
   if (limitEtchSize(pixelNumber) === true) {
+    // Gets rid of old pixels
     clearContainer(row);
+
     getContSize();
     getPixelSize(contWidth, contHeight, pixelNumber);
     buildContainer(pixelNumber);  
@@ -143,21 +148,15 @@ pixelInputButton.addEventListener('click', () => {
   buildEtch(pixelNumber);
 });
 
-/*
-Function to have a limit of 100 pixels
-Function creates div underneath bottom row
-Adds text saying pixel limit
-Removes after 20 seconds.
-*/
 
 function limitEtchSize(pixelNumber) {
-  if (pixelNumber <= 100) return true;
+  let etchLimitMessage = document.querySelector('.etch-limit-message');
+  if (pixelNumber <= 100) {
+    etchLimitMessage.style.display = 'none';
+    return true;
+  }
   else {
-    let etchLimitMessage = document.createElement('div');
-    etchLimitMessage.classList.add('etch-limit-message');
-    etchLimitMessage.textContent = 'That\'s too high, enter a number lower than 100!';
-    let etchHolder = document.querySelector('.etch-holder');
-    etchHolder.appendChild(etchLimitMessage);
+    etchLimitMessage.style.display = '';
     return false;
   }
 }
