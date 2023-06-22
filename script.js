@@ -21,6 +21,8 @@ let pixelBorderWidth = 1;
 buildEtch(50);
 
 function buildEtch(pixelNumber) {
+  // Builds a square of length/width 'pixelNumber'.
+  // Will replace pixels if already present.
   clearContainer(row);
   getContSize();
   getPixelSize(contWidth, contHeight, pixelNumber);
@@ -28,7 +30,7 @@ function buildEtch(pixelNumber) {
 }
 
 function clearContainer(parent) {
-
+  // Remove old pixels so new pixels can take their place.
   let child = parent.lastElementChild;
   while (child) {
     parent.removeChild(child);
