@@ -12,21 +12,22 @@ let pixelRow = [];
 
 let contWidth;
 let contHeight;
-
 let pixelWidth;
 let pixelHeight;
-
 let pixelBorderWidth = 1;
 
+// Default size that page will start with.
 buildEtch(50);
 
 function buildEtch(pixelNumber) {
   // Builds a square of length/width 'pixelNumber'.
   // Will replace pixels if already present.
-  clearContainer(row);
-  getContSize();
-  getPixelSize(contWidth, contHeight, pixelNumber);
-  buildContainer(pixelNumber);  
+  if (limitEtchSize(pixelNumber) === true) {
+    clearContainer(row);
+    getContSize();
+    getPixelSize(contWidth, contHeight, pixelNumber);
+    buildContainer(pixelNumber);  
+  } else return;
 }
 
 function clearContainer(parent) {
@@ -116,8 +117,8 @@ function pixelPink() {
   });
 };
 
-// Gets a random value between 0 and 256 and assigns to RBG values for pixel background color;
 function pixelRandomColor() {
+  // Gets a random value between 0 and 256 and assigns to RBG values for pixel background color;
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
@@ -133,26 +134,30 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
-/*
-Prompt user for pixel amount
-Change color for buttons
-Adjust stylesheet
-*/
-
-/*
-Create constant for input class 'pixel-input' 
-Create event listener for input.
-Make value return to a variable.
-Change pixel number to variable.
-Start with a default number?
-*/
-
 const pixelInputNumber = document.querySelector('#pixel-input');
 const pixelInputButton = document.querySelector('#pixel-input-button');
 
 pixelInputButton.addEventListener('click', () => {
-  console.log(pixelInputNumber.value);
+  // Uses user input to build new etch with user defined width/height.
   let pixelNumber = pixelInputNumber.value;
   buildEtch(pixelNumber);
 });
 
+/*
+Function to have a limit of 100 pixels
+Function creates div underneath bottom row
+Adds text saying pixel limit
+Removes after 20 seconds.
+*/
+
+function limitEtchSize(pixelNumber) {
+  if (pixelNumber <= 100) return true;
+  else {
+    let etchLimitMessage = document.createElement('div');
+    etchLimitMessage.classList.add('etch-limit-message');
+    etchLimitMessage.textContent = 'That\'s too high, enter a number lower than 100!';
+    let etchHolder = document.querySelector('.etch-holder');
+    etchHolder.appendChild(etchLimitMessage);
+    return false;
+  }
+}
