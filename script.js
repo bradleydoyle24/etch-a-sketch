@@ -147,6 +147,16 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
+function pixelDarken() {
+  const pixels = document.querySelectorAll('.pixel');
+  let backgroundColor = 200;
+  pixels.forEach((pixel, index) => {
+    pixels[index].addEventListener('mouseenter', ()=> {
+      pixels[index].style.backgroundColor = `rgb()`;
+  });
+});
+}
+
 // CHANGES CLICKED BUTTON TO BLUE, NON-CLICKED TO DEFAULT COLOR
 const colorButtons = document.querySelectorAll('.color-button')
 
@@ -174,13 +184,20 @@ pixelInputButton.addEventListener('click', () => {
 function limitEtchSize(pixelNumber) {
   // Stops pixels > 100 and reveals message to user of pixel limit.
   let etchLimitMessage = document.querySelector('.etch-limit-message');
-  if (pixelNumber <= 100) {
-    etchLimitMessage.style.display = 'none';
-    return true;
-  }
-  else {
-    etchLimitMessage.style.display = '';
-    return false;
+  // Clicking 'clear screen' with no user input returns pixelNumber as undefined,
+  // this simply substitutes pixelNumber as '50' if that is the case.
+  if (pixelNumber !== undefined) {
+    if (pixelNumber <= 100) {
+      etchLimitMessage.style.display = 'none';
+      return true;
+    }
+    else {
+      etchLimitMessage.style.display = '';
+      return false;
+    }
+  } else {
+    pixelNumber = 50;
+    limitEtchSize(pixelNumber);
   }
 }
 
