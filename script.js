@@ -181,13 +181,17 @@ const colorButtons = document.querySelectorAll('.color-button')
 colorButtons.forEach((button) => {
   button.addEventListener('click', () => {
     // Returns buttons to default background color.
-    colorButtons.forEach((button) => {
-      button.style.backgroundColor = '';
-    });
+    clearButtons(colorButtons);
     // Changes clicked button background color to blue.
     button.style.backgroundColor = 'rgb(22 81 238)';
   });
 });
+
+function clearButtons(colorButtons) {
+  colorButtons.forEach((button) => {
+    button.style.backgroundColor = '';
+  });
+}
 
 const pixelInputNumber = document.querySelector('#pixel-input');
 const pixelInputButton = document.querySelector('#pixel-input-button');
@@ -196,6 +200,7 @@ pixelInputButton.addEventListener('click', () => {
   // Uses user input to build new etch with user defined width/height.
   pixelNumber = pixelInputNumber.value;
   buildEtch(pixelNumber);
+  clearButtons(colorButtons);
 });
 
 
@@ -223,4 +228,5 @@ function limitEtchSize(pixelNumber) {
 const clearScreen = document.querySelector('#clear-screen');
 clearScreen.addEventListener('click', () => {
   buildEtch(pixelNumber);
+  clearButtons(colorButtons);
 });
