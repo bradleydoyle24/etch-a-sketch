@@ -83,8 +83,6 @@ function buildContainer(pixelNumber) {
 // ADJUST PIXEL COLOR WHEN MOUSE HOVERS OVER
 const pixels = document.querySelectorAll('.pixel');
 
-// Iterates through list of pixels, adding an event listener to each one,
-// with an anonymous function to change the pixel class to .pixelBlack.
 function pixelBlack() {
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
@@ -94,7 +92,6 @@ function pixelBlack() {
   });
 };
 
-// PIXEL COLOR CHANGING FUNCTIONS
 function pixelRed() {
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
@@ -140,6 +137,7 @@ function getRandom() {
 }
 
 function pixelDarken() {
+  // Darkens pixels until pixel is black after 10 events.
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', ()=> {
