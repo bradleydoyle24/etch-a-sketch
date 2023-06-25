@@ -153,7 +153,7 @@ function pixelDarken() {
       let blue = parseInt(rgbArray[2]);
 
       // original rgb vlues are 200. 20 reduces by 10% each time.
-      if (red !== 0 && green !== 0 && blue !== 0) {
+      if (red >= 0 && green >= 0 && blue >= 0) {
         red -= 20;
         green -= 20;
         blue -= 20;
