@@ -16,7 +16,7 @@
       <div class="bottom-row">
         <div class="pixel-number-container">
           <div class="pixel-number-title">Number of Pixels:</div>
-          <div class="pixel-number"><input id="pixel-input" placeholder="100"><button id="pixel-input-button">Go</button></div>
+          <div class="pixel-number"><input id="pixel-input" placeholder="1-100"><button id="pixel-input-button">Go</button></div>
         </div>
         <div class="selections">
           <div class="selection">
@@ -33,6 +33,9 @@
           </div>
           <div class="selection">
             <button id="random" class="color-button" onclick="pixelRandomColor()">Random</button>
+          </div>
+          <div class="selection">
+            <button id="darken" class="color-button" onclick="pixelDarken()">Darken</button>
           </div>
         </div>
         <button id="clear-screen" class="selections">CLEAR SCREEN</button>
