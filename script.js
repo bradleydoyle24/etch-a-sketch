@@ -163,7 +163,6 @@ function pixelDarken() {
         red -= 20;
         green -= 20;
         blue -= 20;
-        console.log(`red is ${red} green is ${green} blue is ${blue}`);
         pixel.style.backgroundColor = `rgb(${red} ${green} ${blue})`;
       } else {
         red = 0;
