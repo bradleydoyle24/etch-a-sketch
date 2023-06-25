@@ -26,9 +26,7 @@ function buildEtch(pixelNumber) {
   // Builds a square of length/width 'pixelNumber'.
   // Will replace pixels if already present.
   if (limitEtchSize(pixelNumber) === true) {
-    // Gets rid of old pixels
     clearContainer(row);
-
     getContSize();
     getPixelSize(contWidth, contHeight, pixelNumber);
     buildContainer(pixelNumber);  
@@ -36,7 +34,6 @@ function buildEtch(pixelNumber) {
     // Builds 50 h/w etch if value > 100.
     pixelNumber = 50;
     clearContainer(row);
-
     getContSize();
     getPixelSize(contWidth, contHeight, pixelNumber);
     buildContainer(pixelNumber); 
@@ -57,16 +54,13 @@ function getContSize() {
   // container border in calculations.
   contWidth = container.clientWidth;
   contHeight = container.clientHeight;
-  console.log(`container width = ${contWidth}`);
-  console.log(`container height = ${contHeight}`);
 }
+
 
 function getPixelSize(contWidth, contHeight, pixelNumber) {
   // Subtract (2 * pixelBorderWidth) as there is a border on each side.
   pixelWidth =  (contWidth / pixelNumber) - (2 * pixelBorderWidth);
   pixelHeight = (contHeight / pixelNumber) - (2 * pixelBorderWidth);
-  console.log(`pixel width = ${pixelWidth}`);
-  console.log(`pixel height = ${pixelHeight}`);
 }
 
 function buildContainer(pixelNumber) {
