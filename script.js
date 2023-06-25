@@ -19,8 +19,6 @@ let pixelWidth;
 let pixelHeight;
 let pixelBorderWidth = 1;
 
-
-
 // Default size that page will start with.
 buildEtch(50);
 
@@ -80,7 +78,7 @@ function buildContainer(pixelNumber) {
       // Create 1 row's worth of pixels and append to row <div>
       pixel[i] = document.createElement('div');
       pixel[i].classList.add('pixel');
-      pixel[i].style.cssText = `width: ${pixelWidth}px; height: ${pixelHeight}px;`;
+      pixel[i].style.cssText = `background-color: rgb(200 200 200); width: ${pixelWidth}px; height: ${pixelHeight}px;`;
       pixelRow[j].appendChild(pixel[i]);  
     } 
     row.appendChild(pixelRow[j]);
@@ -149,13 +147,32 @@ function getRandom() {
 
 function pixelDarken() {
   const pixels = document.querySelectorAll('.pixel');
-  let backgroundColor = 200;
-  pixels.forEach((pixel, index) => {
-    pixels[index].addEventListener('mouseenter', ()=> {
-      pixels[index].style.backgroundColor = `rgb()`;
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', ()=> {
+      pixelStyle = getComputedStyle(pixel);
+      backgroundColor = pixelStyle.backgroundColor;
+
+      let rgbValues = backgroundColor.substring(4, backgroundColor.length - 1);
+      let rgbArray = rgbValues.split(" ");
+      let red = parseInt(rgbArray[0]);
+      let green = parseInt(rgbArray[1]);
+      let blue = parseInt(rgbArray[2]);
+
+      if (red !== 0 && green !== 0 && blue !== 0) {
+        red -= 20;
+        green -= 20;
+        blue -= 20;
+        console.log(`red is ${red} green is ${green} blue is ${blue}`);
+        pixel.style.backgroundColor = `rgb(${red} ${green} ${blue})`;
+      } else {
+        red = 0;
+        green = 0;
+        blue = 0;
+      }
+    });
   });
-});
 }
+
 
 // CHANGES CLICKED BUTTON TO BLUE, NON-CLICKED TO DEFAULT COLOR
 const colorButtons = document.querySelectorAll('.color-button')
