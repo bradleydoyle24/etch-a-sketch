@@ -137,39 +137,6 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
-/*
-function pixelDarken() {
-  // Darkens pixels until pixel is black after 10 events.
-  const pixels = document.querySelectorAll('.pixel');
-  pixels.forEach((pixel) => {
-    pixel.addEventListener('mouseenter', ()=> {
-      pixelStyle = getComputedStyle(pixel);
-      backgroundColor = pixelStyle.backgroundColor;
-      console.log(pixel.backgroundColor);
-
-      let rgbValues = backgroundColor.substring(4, backgroundColor.length - 1);
-      let rgbArray = rgbValues.split(" ");
-      let red = parseInt(rgbArray[0]);
-      let green = parseInt(rgbArray[1]);
-      let blue = parseInt(rgbArray[2]);
-
-      // original rgb vlues are 200. 20 reduces by 10% each time.
-      if (red >= 0 && green >= 0 && blue >= 0) {
-        red -= 20;
-        green -= 20;
-        blue -= 20;
-        pixel.style.backgroundColor = `rgb(${red} ${green} ${blue})`;
-      } else {
-        red = 0;
-        green = 0;
-        blue = 0;
-      }
-    });
-  });
-}
-*/
-
-
 // CHANGES CLICKED BUTTON TO BLUE, NON-CLICKED TO DEFAULT COLOR
 const colorButtons = document.querySelectorAll('.color-button')
 
