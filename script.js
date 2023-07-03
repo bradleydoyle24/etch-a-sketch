@@ -18,6 +18,7 @@ let contHeight;
 let pixelWidth;
 let pixelHeight;
 let pixelBorderWidth = 1;
+let pixelAltered;
 
 // Default size that page will start with.
 buildEtch(50);
@@ -136,6 +137,7 @@ function getRandom() {
   return Math.floor(Math.random() * 256);
 }
 
+/*
 function pixelDarken() {
   // Darkens pixels until pixel is black after 10 events.
   const pixels = document.querySelectorAll('.pixel');
@@ -143,6 +145,7 @@ function pixelDarken() {
     pixel.addEventListener('mouseenter', ()=> {
       pixelStyle = getComputedStyle(pixel);
       backgroundColor = pixelStyle.backgroundColor;
+      console.log(pixel.backgroundColor);
 
       let rgbValues = backgroundColor.substring(4, backgroundColor.length - 1);
       let rgbArray = rgbValues.split(" ");
@@ -164,6 +167,7 @@ function pixelDarken() {
     });
   });
 }
+*/
 
 
 // CHANGES CLICKED BUTTON TO BLUE, NON-CLICKED TO DEFAULT COLOR
